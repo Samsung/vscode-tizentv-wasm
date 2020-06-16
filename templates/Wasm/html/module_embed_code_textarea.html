@@ -1,0 +1,17 @@
+
+	<!-- WASM MODULE START: [##ModuleName##] -->
+	<div class="[##ModuleName##]_class">
+	    <h1>WebAssembly Module: [##ModuleName##]</h1>
+	    <textarea class="[##ModuleName##]_class" id="[##ModuleName##]_output" rows="[##TEXTAREA_ROWS##]" cols="[##TEXTAREA_COLS##]"></textarea>
+	    <script src="wasm_modules/[##ModuleName##]/CurrentBin/[##ModuleName##].js"></script>
+	    <script>
+	        var [##ModuleName##] = new Proxy(
+	            new ModuleLoader(
+	                'wasm_modules/[##ModuleName##]/CurrentBin/[##ModuleName##].wasm',
+	                [##ModuleName##],
+	                null,
+	                document.getElementById('[##ModuleName##]_output')),
+	            ModuleLoaderProxyHandler);
+	    </script>
+	</div>
+	<!-- WASM MODULE END: [##ModuleName##] -->

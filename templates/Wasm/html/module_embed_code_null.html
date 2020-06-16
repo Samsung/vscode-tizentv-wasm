@@ -1,0 +1,16 @@
+
+	<!-- WASM MODULE START: [##ModuleName##] -->
+	<div class="[##ModuleName##]_class">
+	    <h1>WebAssembly Module: [##ModuleName##]</h1>
+	    <script src="wasm_modules/[##ModuleName##]/CurrentBin/[##ModuleName##].js"></script>
+	    <script>
+	        var [##ModuleName##] = new Proxy(
+	            new ModuleLoader(
+	                'wasm_modules/[##ModuleName##]/CurrentBin/[##ModuleName##].wasm',
+	                [##ModuleName##],
+	                null,
+	                null),
+	            ModuleLoaderProxyHandler);
+	    </script>
+	</div>
+	<!-- WASM MODULE END: [##ModuleName##] -->
