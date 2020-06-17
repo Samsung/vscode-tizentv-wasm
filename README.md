@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-    <img src="https://github.sec.samsung.net/VD-WebPlatform/WebAssembly/blob/master/vscode-extension-tizentvwasm/images/icon.png" alt="logo" width="200">
+    <img src="https://github.com/Samsung/vscode-tizentv-wasm/blob/master/images/icon.png" alt="logo" width="200">
   <br>
   VS Code - Tizen TV WASM
   <br>
@@ -10,14 +10,14 @@
 <h4 align="center">Generate/Edit/Package/Run/Debug your webassembly applications with Tizen Targets</h4>
 
 <p align="center">
-  <a href="https://github.com/samsung/vscode-extension-tizentv"><img src="https://github.sec.samsung.net/VD-WebPlatform/WebAssembly/blob/master/vscode-extension-tizentvwasm/images/buildpassing.png" alt="Source"></a>
-  <a href="https://github.com/samsung/vscode-extension-tizentv/releases"><img src="https://github.sec.samsung.net/VD-WebPlatform/WebAssembly/blob/master/vscode-extension-tizentvwasm/images/release.png" alt="Release"></a>
-  <a href="https://github.com/samsung/vscode-extension-tizentv/wiki"><img src="https://github.sec.samsung.net/VD-WebPlatform/WebAssembly/blob/master/vscode-extension-tizentvwasm/images/chatter.png" alt="Wiki"></a>
+  <a href="https://github.com/Samsung/vscode-tizentv-wasm"><img src="https://github.com/Samsung/vscode-tizentv-wasm/blob/master/images/buildpassing.png" alt="Source"></a>
+  <a href="https://github.com/Samsung/vscode-tizentv-wasm"><img src="https://github.com/Samsung/vscode-tizentv-wasm/blob/master/images/release.png" alt="Release"></a>
+  <a href="https://github.com/Samsung/vscode-tizentv-wasm"><img src="https://github.com/Samsung/vscode-tizentv-wasm/blob/master/images/chatter.png" alt="Wiki"></a>
 </p>
 
 'Tizen TV WASM' is a VS Code extension that provides a lightweight IDE for Tizen Webassembly application developers, helps to generate, update and package an application, also run and debug an application on Tizen targets.
 
-![Demo](https://github.sec.samsung.net/VD-WebPlatform/WebAssembly/blob/master/vscode-extension-tizentvwasm/images/demo.gif)
+![Demo](https://github.com/Samsung/vscode-tizentv-wasm/blob/master/images/demo.gif)
 
 ## Supported features
 * Tizen TV WASM: Create Web Project  
@@ -47,15 +47,16 @@ The extension supports most of the basic features required to develop a Tizen TV
 ### Setup Environment  
 1. Install Emscripten Tool  
    *https://developer.samsung.com/smarttv/develop/extension-libraries/webassembly/getting-started/downloading-and-installing.html*  
+   (please make sure that emscripten system variables are setted rightly to the whole environment).  
 2. Install latest VS Code release  
    *https://code.visualstudio.com*  
    *https://code.visualstudio.com/docs/setup/setup-overview* 
-3. Execute *ext install tizentvwasm* in command pallete(or clone tizentvwasm-1.0.0.vsix from github, install with terminal command)  
-   *#code --install-extension tizentvwasm-1.0.0.vsix*  
+3. Execute *ext install tizentvwasm* in command pallete(or clone tizentvwasm-0.9.1.vsix from github, install with terminal command)  
+   *#code --install-extension tizentvwasm-0.9.1.vsix*  
 4. Start/Restart VS Code  
 5. Use F1 to open the palette and input *>Tizen* to find commands like format : *Tizen TV WASM: Create Web Project*  
 6. Use F5 to find debuggers  
-<p><img src="https://github.sec.samsung.net/VD-WebPlatform/WebAssembly/blob/master/vscode-extension-tizentvwasm/images/featurelist.png" alt="feature list"></p>  
+<p><img src="https://github.com/Samsung/vscode-tizentv-wasm/blob/master/images/featurelist.png" alt="feature list"></p>  
 
 ### Command Configuration  
 For running/debugging an app, please configure one of below items:  
@@ -70,7 +71,7 @@ File > Preferences > Settings
   Configuration of target TV's IP and port  
 * tizentv.certificateManager 
   Opitional parameters for creating certification profile 
-<p><img src="https://github.sec.samsung.net/VD-WebPlatform/WebAssembly/blob/master/vscode-extension-tizentvwasm/images/setting.png" alt="setting"></p>
+<p><img src="https://github.com/Samsung/vscode-tizentv-wasm/blob/master/images/setting.png" alt="setting"></p>
 
 ### Debugger Configuration  
 If the launch.json is not yet configured, please configure the launching item  
@@ -78,7 +79,7 @@ If the launch.json is not yet configured, please configure the launching item
   Set the TV Simulator's location for debug on TV simulator  
 * targetIp  
   Set the target TV's IP for debug on TV  
-<p><img src="https://github.sec.samsung.net/VD-WebPlatform/WebAssembly/blob/master/vscode-extension-tizentvwasm/images/debugsetting.png" alt="debug setting"></p>
+<p><img src="https://github.com/Samsung/vscode-tizentv-wasm/blob/master/images/debugsetting.png" alt="debug setting"></p>
 
 
 ## F.A.Q
