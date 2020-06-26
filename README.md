@@ -45,18 +45,32 @@
 The extension supports most of the basic features required to develop a Tizen TV wasm app. It supports to create application using predefined templates, package the application, sign the application using certificate profile, launch a command prompt to execute sdb commands, run or debug application on TV Simulator, Emulator and Tizen TV.
 
 ### Setup Environment  
-1. Install Emscripten Tool  
-   *https://developer.samsung.com/smarttv/develop/extension-libraries/webassembly/getting-started/downloading-and-installing.html*  
-   (please make sure that emscripten system variables are setted rightly to the whole environment).  
-2. Install latest VS Code release  
-   *https://code.visualstudio.com*  
-   *https://code.visualstudio.com/docs/setup/setup-overview* 
-3. Execute *ext install tizentvwasm* in command pallete(or clone tizentvwasm-0.9.1.vsix from github, install with terminal command)  
-   *#code --install-extension tizentvwasm-0.9.1.vsix*  
-4. Start/Restart VS Code  
-5. Use F1 to open the palette and input *>Tizen* to find commands like format : *Tizen TV WASM: Create Web Project*  
-6. Use F5 to find debuggers  
-<p><img src="https://github.com/Samsung/vscode-tizentv-wasm/blob/master/images/featurelist.png" alt="feature list"></p>  
+1. Install the latest [Visual Studio Code](https://code.visualstudio.com).
+2. Install the **Tizen TV WASM extension** from the market place. **Tizen TV WASM extension** can be installed by searching in the Extensions view ( Ctrl+Shift+X ).
+3. Download and extract the [Tizen Emscripten SDK](https://developer.samsung.com/smarttv/develop/extension-libraries/webassembly/download.html) suitable for your OS. 
+4. Setup the Tizen Emscripten and use it with Visual Studio Code.
+    > These steps guide using *emsdk* without changing development host environment variables permanently.
+   - Windows
+     - Launch the Windows *Command shell*.
+     - Go to the *emsdk* directory.
+     - Run the below commands.
+     ```shell
+      emsdk activate latest-fastcomp
+      code
+     ```
+   - Mac & Linux
+     - Launch the *Terminal*.
+     - Go to the *emsdk* directory.
+     - Run the below commands.
+     ```shell
+      ./emsdk activate latest-fastcomp
+      source ./emsdk_env.sh
+      code
+     ```
+5. Press **F1** to open the *Command Palette* and input **Tizen TV WASM** to find out all the supported commands.
+<p><img src="https://github.com/Samsung/vscode-tizentv-wasm/blob/master/images/featurelist.png" alt="feature list"></p>
+
+6. Press **F5** to find out supported debuggers. 
 
 ### Command Configuration  
 For running/debugging an app, please configure one of below items:  
@@ -68,9 +82,7 @@ File > Preferences > Settings
 * tizentv.chromeExecutable  
   Configuration of chrome executable's path  
 * tizentv.targetDeviceAddress  
-  Configuration of target TV's IP and port  
-* tizentv.certificateManager 
-  Opitional parameters for creating certification profile 
+  Configuration of target TV's IP address and port{ 26101 is the default port number }. 
 <p><img src="https://github.com/Samsung/vscode-tizentv-wasm/blob/master/images/setting.png" alt="setting"></p>
 
 ### Debugger Configuration  
