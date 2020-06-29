@@ -94,8 +94,5 @@ If the launch.json is not yet configured, please configure the launching item
 <p><img src="https://github.com/Samsung/vscode-tizentv-wasm/blob/master/images/debugsetting.png" alt="debug setting"></p>
 
 
-## F.A.Q
-Please get contact points at below:  
-  *jie1013.wu@samsung.com*  
-  *mv.kulkarni@samsung.com*  
-
+## Feedback
+Please log your [suggestions and issues](https://github.com/Samsung/vscode-tizentv-wasm/issues)
