@@ -4,6 +4,8 @@ var certificateManager = (function(){
 	var os = require('os');
 	var fs = require('fs');
 	var path = require('path');
+	var request = require('request');
+	var compressing = require('compressing')
 	var common = require('./common');
 	var logger = require('./logger');
 	var p12ToPem = require('./p12ToPem');
@@ -13,12 +15,20 @@ var certificateManager = (function(){
 	//Certificate Resources
 	var extensionPath = __dirname;
 	var certPath = common.extensionCertPath;
-	var developerCA = certPath + path.sep + 'tizen-author.ca';
-    var distributorCA = certPath + path.sep + 'tizen-distributor-public.ca';
-	var distributorSigner = certPath + path.sep + 'tizen-distributor-public-signer.p12';
 	var ResourcePath = extensionPath + '/resource';
 	var AuthorPath = ResourcePath + '/Author';
 	var profilePath = ResourcePath + '/profiles.xml';
+
+	//Certificate directory
+	var certGeneratorName = common.getCertGeneratorName();
+	var certGeneratorVer = common.getCertGeneratorVer();
+	var certDownloadUrlPrefix = common.getCertDownloadUrlPrefix();
+	var certDownloadUrlSuffix = common.getCertDownloadUrlSuffix();
+	var certGenerateUnzipPath = extensionPath + path.sep + 'resource' + path.sep + certGeneratorName;
+
+	var developerCA = certPath + path.sep + 'developer' + path.sep + common.getDeveloperCaName();
+	var distributorCA = certPath + path.sep + 'distributor' + path.sep + 'sdk-public' + path.sep + common.getDistributorCaName();
+	var distributorSigner = certPath + path.sep + 'distributor' + path.sep + 'sdk-public' + path.sep + common.getDistributorSigner();
 
 	// Module name
 	var moduleName = 'Certificate Manager';
@@ -356,7 +366,7 @@ var certificateManager = (function(){
 						common.showMsgOnWindow(common.ENUM_WINMSG_LEVEL.WARNING, passNotDef);
 						throw passNotDef;
 					}else{
-						distributorSignerPassword = password;
+						distributorSignerPKCS = password;
 						finishOrCancel();
 					}
 
@@ -393,16 +403,91 @@ var certificateManager = (function(){
 			// Select 'Empty App'
 			if (choice.label === 'Finish' ) {
 				if(authorFlag == 'create'){
-					generateAuthorCert();
+					//1.judge if "certificate-generator" directory exist
+					var curPlatform = 'macos-64';
+					if(process.platform === 'win32') {
+						curPlatform = 'windows-64';
+					} else if(process.platform === 'linux') {
+						curPlatform = 'ubuntu-64';
+					}
+					
+					if(!fs.existsSync(certGenerateUnzipPath)) {	//directory not exist						
+						//2. judge if .zip exist
+						var certGenerateFile = extensionPath + path.sep + 'resource' + path.sep + certGeneratorName + '_' + certGeneratorVer + '_' + curPlatform + certDownloadUrlSuffix;
+						logger.info(moduleName, 'certGenerateFile = ' + certGenerateFile);
+
+						if(fs.existsSync(certGenerateFile)) {	//zip exist
+							//unzip
+							compressing.zip.uncompress(certGenerateFile, certGenerateUnzipPath)
+								.then(() => {
+									logger.info(moduleName, ' unzip ' + certGenerateFile + ' successfully!!');
+
+									//remove zip
+									fs.unlinkSync(certGenerateFile);
+
+									//create a author a certificate
+									generateAuthorCert();
+
+									//register profile
+									activeFlag = true;
+									common.showMsgOnWindow(common.ENUM_WINMSG_LEVEL.INFO, 'This certificate profile will be set as active');
+									registerProfile();
+								})
+								.catch(err => {
+									logger.error(moduleName, err);
+								});
+						} else {	//zip not exist, should download
+							logger.info(moduleName, '============================================================not exist!!!! start download:');
+							//2.download from url
+							var certDownloadUrl = certDownloadUrlPrefix + certGeneratorName + '_' + certGeneratorVer + '_' + curPlatform + certDownloadUrlSuffix;
+							logger.info(moduleName, 'certDownloadUrl = ' + certDownloadUrl);
+
+							//Download zip
+							var stream = fs.createWriteStream(certGenerateFile);
+							request(certDownloadUrl).pipe(stream).on('close', function (err) {
+								//download successfully
+								logger.info(moduleName, 'download ' + certGenerateFile + ' successfully!!');
+
+								//unzip
+								compressing.zip.uncompress(certGenerateFile, certGenerateUnzipPath)
+									.then(() => {
+										logger.info(moduleName, ' unzip ' + certGenerateFile + ' successfully!!');
+
+										//remove zip
+										fs.unlinkSync(certGenerateFile);
+
+										//create a author a certificate
+										generateAuthorCert();
+
+										//register profiler
+										activeFlag = true;
+										common.showMsgOnWindow(common.ENUM_WINMSG_LEVEL.INFO, 'This certificate profile will be set as active');
+										registerProfile();
+									})
+									.catch(err => {
+										logger.error(moduleName, err);
+									});
+
+							});
+						}
+					}
+					else{	//exist
+						logger.info(moduleName, '============================================================exist!!!! need not download');
+						//create a author a certificate
+						generateAuthorCert();
+
+						activeFlag = true;
+						common.showMsgOnWindow(common.ENUM_WINMSG_LEVEL.INFO, 'This certificate profile will be set as active');
+						registerProfile();
+					}
 				}
-				var profileNum = getProfileItems().itemNum;
-				/*if(profileNum>0){
-					setActiveOrNot();
-				}else{*/
+				//var profileNum = getProfileItems().itemNum;
+				
+				else {
 					activeFlag = true;
 					common.showMsgOnWindow(common.ENUM_WINMSG_LEVEL.INFO, 'This certificate profile will be set as active');
 					registerProfile();
-				//}
+				}
 
 			}
 		});
@@ -454,7 +539,7 @@ var certificateManager = (function(){
 	var registerProfile =function(){
 		logger.info(moduleName,'Register certificate to profile: '+profilePath );
 		var encryptedAuthorPassword = p12ToPem.encryptPassword(authorPassword);
-		var encryptedDistributorPassword = p12ToPem.encryptPassword(distributorSignerPassword);
+		var encryptedDistributorPassword = p12ToPem.encryptPassword(distributorSignerPKCS);
 
 		var profilePrefix = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n'+
 			'<profiles active=\"'+profileName + '\" version="3.1">\n';
@@ -1192,8 +1277,8 @@ var certificateManager = (function(){
         // Handle 'Run on TV' command
         handleCommand:function() {
             logger.info(moduleName, '==============================Certificate Manager start!');
-			distributorSigner = __dirname + '/resource/cert/tizen-distributor-public-signer.p12';
-			distributorSignerPassword = 'tizenpkcs12passfordsigner';
+			distributorSignerPKCS = common.getDistributorSignerPKCS();
+
 
 			profileName = '';
 			authorCertPath = '';

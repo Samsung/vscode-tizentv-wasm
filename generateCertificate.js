@@ -8,8 +8,8 @@ var logger = require('./logger');
 var extensionPath = common.extensionRootPath;
 var certPath = common.extensionCertPath;
 var authorPath = extensionPath + '/resource/Author'.split('/').join(path.sep);
-var caPriKeyPath = certPath + path.sep + 'tizen-author.pri';
-var caCertPath = certPath + path.sep + 'tizen-author.ca';
+var caSignerPath = certPath + path.sep + 'developer' + path.sep + common.getDeveloperSignerName();
+var caCertPath = certPath + path.sep + 'developer' + path.sep + common.getDeveloperCaName();
 
 // Module name
 var moduleName = 'Generate Certificate';
@@ -91,18 +91,10 @@ function createCert(authorCertName, authorCertPath, authorPassword, countryInfo,
 
         //read ca private Key
         logger.info(moduleName, 'Read ca private Key');
-        //var caPriPem = fs.readFileSync(caPriKeyPath);
-        let key = 'SRCNSDKTEAM2019';
-        key = crypto.createHash('sha256').update(key).digest('base64').substr(0, 32);
+        var caSigner = fs.readFileSync(caSignerPath);
+        var caPKCS = common.getDeveloperSignerPKCS();
 
-        let inputData = fs.readFileSync(caPriKeyPath);
-        const iv = Buffer.alloc(16, 0);
-        let decipher = crypto.createDecipheriv('aes-256-cbc', key, iv);
-
-        let caPriPem = Buffer.concat([decipher.update(inputData,'hex'), decipher.final()]);
-        var caPassword = 'tizencertificatefordevelopercaroqkfwk';
-
-        var decryptedCaPriKey = forge.pki.decryptRsaPrivateKey(caPriPem.toString('utf8'), caPassword);
+        var decryptedCaPriKey = forge.pki.decryptRsaPrivateKey(caSigner.toString('utf8'), caPKCS);
     
 
         cert.sign(decryptedCaPriKey);
@@ -138,18 +130,8 @@ function createCert(authorCertName, authorCertPath, authorPassword, countryInfo,
 }
 exports.createCert = createCert;
  
-function loadCaCert() {
-    
-    let key = 'SRCNSDKTEAM2019';
-    key = crypto.createHash('sha256').update(key).digest('base64').substr(0, 32);
-
-    let inputData = fs.readFileSync(caCertPath);
-    const iv = Buffer.alloc(16, 0);
-    let decipher = crypto.createDecipheriv('aes-256-cbc', key, iv);
-    
-    //var caCert = fs.readFileSync(caCertPath);
-    let caCert = Buffer.concat([decipher.update(inputData,'hex'), decipher.final()]);
-    //console.log(caCert.toString('utf8'));
+function loadCaCert() {    
+    var caCert = fs.readFileSync(caCertPath);
     var caContent = caCert.toString('utf8');
 
     var strBeginCertificate = '-----BEGIN CERTIFICATE-----';
@@ -162,7 +144,6 @@ function loadCaCert() {
     var strEndLen = strEndCertificate.length;
     
     var cert1 = caContent.substring(line1Beg, line1End+strEndLen);
-    //console.log(cert1);
     return cert1;
 }
 

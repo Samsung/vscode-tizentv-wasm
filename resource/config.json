@@ -1,0 +1,12 @@
+{
+    "name" : "certificate-generator",
+    "version" : "0.1.2",
+    "downloadUrlPrefix" : "http://download.tizen.org/sdk/tizenstudio/official/binary/",
+    "downloadUrlSuffix" : ".zip",
+    "developerCA" : "tizen-developer-ca.cer",
+    "developerSigner" : "tizen-developer-ca-privatekey.pem",
+    "developerSignerPKCS" : "tizencertificatefordevelopercaroqkfwk",
+    "distributorCA" : "tizen-distributor-ca.cer",
+    "distributorSigner" : "tizen-distributor-signer.p12",
+    "distributorSignerPKCS" : "tizenpkcs12passfordsigner"
+}

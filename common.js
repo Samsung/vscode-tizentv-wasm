@@ -16,7 +16,7 @@ var logger = require('./logger');
 var extensionRootPath = path.normalize(__dirname + path.sep + '..');
 exports.extensionRootPath = extensionRootPath;
 
-var extensionCertPath = __dirname + path.sep + 'resource' + path.sep +'cert';
+var extensionCertPath = __dirname + path.sep + 'resource' + path.sep + 'certificate-generator' + path.sep + 'data' + path.sep + 'tools' + path.sep + 'certificate-generator' + path.sep + 'certificates';
 exports.extensionCertPath = extensionCertPath;
 
 // Random ID generator
@@ -700,4 +700,68 @@ function copyDir(from, to, cb) {
 }
 exports.copyDir = copyDir;
 
+//return certificate-generator config.json content
+function getCertConfig() {
+	var content = {};
+	var configPath = extensionPath + path.sep + 'resource' + path.sep + 'config.json';
+	if(!fs.existsSync(configPath)) {
+		logger.error(moduleName, "There is no config file exist!!");
+		return content;
+	}
 
+	//exist
+	var jsonStr = fs.readFileSync(configPath, 'utf-8');
+	content = JSON.parse(jsonStr);
+	return content;
+}
+
+//get certificate-generator name
+function getCertGeneratorName() {
+	return getCertConfig().name;
+}
+exports.getCertGeneratorName = getCertGeneratorName;
+
+function getCertGeneratorVer() {
+	return getCertConfig().version;
+}
+exports.getCertGeneratorVer = getCertGeneratorVer;
+
+function getCertDownloadUrlPrefix() {
+	return getCertConfig().downloadUrlPrefix;
+}
+exports.getCertDownloadUrlPrefix = getCertDownloadUrlPrefix;
+
+function getCertDownloadUrlSuffix() {
+	return getCertConfig().downloadUrlSuffix;
+}
+exports.getCertDownloadUrlSuffix = getCertDownloadUrlSuffix;
+
+function getDeveloperCaName() {
+	return getCertConfig().developerCA;
+}
+exports.getDeveloperCaName = getDeveloperCaName;
+
+function getDeveloperSignerName() {
+	return getCertConfig().developerSigner;
+}
+exports.getDeveloperSignerName = getDeveloperSignerName;
+
+function getDeveloperSignerPKCS() {
+	return getCertConfig().developerSignerPKCS;
+}
+exports.getDeveloperSignerPKCS = getDeveloperSignerPKCS;
+
+function getDistributorCaName() {
+	return getCertConfig().distributorCA;
+}
+exports.getDistributorCaName = getDistributorCaName;
+
+function getDistributorSigner() {
+	return getCertConfig().distributorSigner;
+}
+exports.getDistributorSigner = getDistributorSigner;
+
+function getDistributorSignerPKCS() {
+	return getCertConfig().distributorSignerPKCS;
+}
+exports.getDistributorSignerPKCS = getDistributorSignerPKCS;

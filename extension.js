@@ -53,7 +53,7 @@ function activate(context) {
     openTerminal.setSdbConfig();
 
     // Tizen TV: Create Web Project
-    var disposable = vscode.commands.registerCommand('extension.createProject', function () {
+    var disposable = vscode.commands.registerCommand('tizentvwasm.createProject', function () {
         
         openTerminal.hideTerminal();
         logger.showOutputPanel();
@@ -62,7 +62,7 @@ function activate(context) {
     });
 
     // Tizen TV: Build Package
-    var disposable = vscode.commands.registerCommand('extension.buildPackage', function () {
+    var disposable = vscode.commands.registerCommand('tizentvwasm.buildPackage', function () {
         openTerminal.hideTerminal();
         logger.showOutputPanel();
         buildPackage.handleCommand();
@@ -70,7 +70,7 @@ function activate(context) {
     });
 
     // Tizen TV: Run on TV Simulator
-    var disposable = vscode.commands.registerCommand('extension.runSimulatorApp', function () {
+    var disposable = vscode.commands.registerCommand('tizentvwasm.runSimulatorApp', function () {
         openTerminal.hideTerminal();
         logger.showOutputPanel();
         launchSimulator.handleCommand();
@@ -78,7 +78,7 @@ function activate(context) {
     });
 
     // Tizen TV: Run on TV
-    var disposable = vscode.commands.registerCommand('extension.runApp', function () {
+    var disposable = vscode.commands.registerCommand('tizentvwasm.runApp', function () {
         openTerminal.hideTerminal();
 	    //common.setFuncMode(common.ENUM_COMMAND_MODE.COMMAND);
         logger.showOutputPanel();
@@ -87,7 +87,7 @@ function activate(context) {
     });
 
     // Tizen TV: Run on TV Emulator
-    var disposable = vscode.commands.registerCommand('extension.runEmulatorApp', function () {
+    var disposable = vscode.commands.registerCommand('tizentvwasm.runEmulatorApp', function () {
         openTerminal.hideTerminal();
 		//common.setFuncMode(common.ENUM_COMMAND_MODE.RUNNING_TIZEN2_4_EMULATOR);
         logger.showOutputPanel();
@@ -96,7 +96,7 @@ function activate(context) {
     });
 
     // Tizen TV: Run TV Emulator Manager
-    var disposable = vscode.commands.registerCommand('extension.runEmulatorManager', function () {
+    var disposable = vscode.commands.registerCommand('tizentvwasm.runEmulatorManager', function () {
         openTerminal.hideTerminal();
         logger.showOutputPanel();
         launchEmulatorManager.handleCommand();
@@ -104,7 +104,7 @@ function activate(context) {
     });
 
     // Tizen TV:Install WebSimulator
-    var disposable = vscode.commands.registerCommand('extension.installSimulator', function () {
+    var disposable = vscode.commands.registerCommand('tizentvwasm.installSimulator', function () {
         openTerminal.hideTerminal();
         logger.showOutputPanel();
         installSimulator.handleCommand();
@@ -112,14 +112,14 @@ function activate(context) {
     });
 
     // Tizen TV: SDB Command Prompt
-    var disposable = vscode.commands.registerCommand('extension.openTerminal', function () {
+    var disposable = vscode.commands.registerCommand('tizentvwasm.openTerminal', function () {
 
         openTerminal.handleCommand();
 
     });
 	
 	// Tizen TV: Web Inspector On TV
-    var disposable = vscode.commands.registerCommand('extension.debugApp', function () {
+    var disposable = vscode.commands.registerCommand('tizentvwasm.debugApp', function () {
         openTerminal.hideTerminal();
 	    //common.setFuncMode(common.ENUM_COMMAND_MODE.WEB_INSPECTOR_ON_TV);
         logger.showOutputPanel();
@@ -128,7 +128,7 @@ function activate(context) {
     });
 	
 	// Tizen TV: Web Inspector On Emulator
-    var disposable = vscode.commands.registerCommand('extension.debugEmulatorApp', function () {
+    var disposable = vscode.commands.registerCommand('tizentvwasm.debugEmulatorApp', function () {
         openTerminal.hideTerminal();
 	    //common.setFuncMode(common.ENUM_COMMAND_MODE.WEB_INSPECTOR_ON_EMULATOR);
         logger.showOutputPanel();
@@ -137,7 +137,7 @@ function activate(context) {
     });
 
     // Tizen TV: Certificate Manager
-    var disposable = vscode.commands.registerCommand('extension.runCertificateManager', function () {
+    var disposable = vscode.commands.registerCommand('tizentvwasm.runCertificateManager', function () {
         openTerminal.hideTerminal();
         logger.showOutputPanel();
         certificateManager.handleCommand();
@@ -145,7 +145,7 @@ function activate(context) {
     });
 
     // Tizen TV: Set Exception Path
-    var disposable = vscode.commands.registerCommand('extension.runsetExceptionPath', function () {
+    var disposable = vscode.commands.registerCommand('tizentvwasm.runsetExceptionPath', function () {
         openTerminal.hideTerminal();
         logger.showOutputPanel();
         setExceptionPath.handleCommand();
@@ -153,7 +153,7 @@ function activate(context) {
     });
 	
     // Tizen TV: Configure Project
-    var disposable = vscode.commands.registerCommand('extension.configureProject', function () {
+    var disposable = vscode.commands.registerCommand('tizentvwasm.configureProject', function () {
         openTerminal.hideTerminal();
         logger.showOutputPanel();
         configureProject.handleCommand();
@@ -161,7 +161,7 @@ function activate(context) {
     });
     
     // Tizen TV: Add Wasm Module
-    var disposable = vscode.commands.registerCommand('extension.addWasmModule', function () {
+    var disposable = vscode.commands.registerCommand('tizentvwasm.addWasmModule', function () {
         openTerminal.hideTerminal();
         logger.showOutputPanel();
         addWasmModule.handleCommand();
