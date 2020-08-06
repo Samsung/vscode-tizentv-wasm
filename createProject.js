@@ -258,7 +258,7 @@ var FileController = (function () {
         vscode.window.showInputBox({
 			ignoreFocusOut: true,
             prompt: 'Please input your workspace, as ' + samplePath,
-            value: ''
+            value: vscode.workspace.rootPath
 
 		// Use input name
         }).then(function (appDir) {

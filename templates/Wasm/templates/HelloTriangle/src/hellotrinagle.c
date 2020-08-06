@@ -190,7 +190,7 @@ int main ()
    esInitContext ( &esContext );
    esContext.userData = &userData;
 
-   esCreateWindow ( &esContext, "Hello Triangle", 320, 240, ES_WINDOW_RGB );
+   esCreateWindow ( &esContext, "Hello Triangle", 800, 600, ES_WINDOW_RGB );
 
    if ( !Init ( &esContext ) )
       return 0;

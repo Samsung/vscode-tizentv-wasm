@@ -424,7 +424,7 @@ var buildPackage = (function() {
 							cmdLinker = cmdLinker + wasmModulePath + path.sep + 'CurrentBin ' + link
 								+ 'emcc -s EXPORT_NAME=' + wasmModuleName 
 								+ ' -s MODULARIZE=1'
-								+ ' -s WASM=1'
+								//+ ' -s WASM=1'
 								+ ' -g4 --bind -o ' + wasmModuleName + '.js ';
 						}
 						else // ENUM_BUILD_MODE.RELEASE
@@ -437,7 +437,7 @@ var buildPackage = (function() {
 							cmdLinker = cmdLinker + wasmModulePath + path.sep + 'CurrentBin' + link
 								+ 'emcc -s EXPORT_NAME=' + wasmModuleName 
 								+ ' -s MODULARIZE=1'
-								+ ' -s WASM=1'
+								//+ ' -s WASM=1'
 								+ ' -O3 --bind -o ' + wasmModuleName + '.js ';
 						}
 

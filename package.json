@@ -1,7 +1,7 @@
 {
 	"name": "tizentvwasm",
 	"displayName": "Tizen TV WASM",
-	"description": "'Tizen TV WASM' is a lightweight dispatch of Tizen Studio, which provides extensible IDE to develop/debug tizen apps in vs code.",
+	"description": "'Tizen TV WASM' is a lightweight dispatch of Tizen Studio, which provides extensible IDE to develop/debug tizen apps in vs code that use WebAssembly modules.",
 	"icon": "images/icon.png",
 	"version": "0.9.1",
 	"publisher": "TizenTVWeb",
@@ -10,7 +10,7 @@
 		"url": "https://github.com/Samsung/vscode-tizentv-wasm"
 	},
 	"engines": {
-		"vscode": "^1.0.0"
+		"vscode": "^1.32.0"
 	},
 	"categories": [
 		"Debuggers",

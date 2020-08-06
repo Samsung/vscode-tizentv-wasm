@@ -91,7 +91,7 @@ var FileController = (function () {
 		var deferred = Q.defer();
 
         // Notify msg
-		var selectTip = 'Please select a Language:';
+		var selectTip = 'Please select';
 		var options = {
 			placeHolder: selectTip,
 			ignoreFocusOut: true
@@ -142,7 +142,7 @@ var FileController = (function () {
 		var deferred = Q.defer();
 
         // Notify msg
-		var selectTip = 'Please select Sample Or Empty :';
+		var selectTip = 'Please select';
 		var options = {
 			placeHolder: selectTip,
 			ignoreFocusOut: true
@@ -151,7 +151,7 @@ var FileController = (function () {
 
         // sample Or Empty
 		var choices = [
-			{ label: 'Sample', description: 'A simple example that writes to standard output and calls a function exported from C++ code.' },
+			{ label: 'Sample', description: 'An example to understand the structure & working of a typical WebAssembly application.' },
 			{ label: 'Empty Module', description: 'An empty template that may be used to create a new WebAssembly module.' }
 		];
 
@@ -199,7 +199,7 @@ var FileController = (function () {
 		{
 			logger.info(moduleName, 'Configure CPP Sample Info');
 		    // Notify msg
-			var selectTip = 'Please select Sample:';
+			var selectTip = 'Please select';
 			var options = {
 				placeHolder: selectTip,
 				ignoreFocusOut: true
@@ -208,7 +208,7 @@ var FileController = (function () {
 
 			// samples list
 			var choices = [
-				{ label: 'Hello World', description: 'A simple sample named "Hello World".' }
+				{ label: 'Hello World', description: 'A "Hello World" application.' }
 			];
 
 		    // Show Samples list
@@ -260,7 +260,7 @@ var FileController = (function () {
 			logger.info(moduleName, 'Configure C Sample Info After Select');
 		    
 		    // Notify msg
-			var selectTip = 'Please select Sample:';
+			var selectTip = 'Please select';
 			var options = {
 				placeHolder: selectTip,
 				ignoreFocusOut: true
@@ -269,7 +269,7 @@ var FileController = (function () {
 
 			// samples list
 			var choices = [
-				{ label: 'Hello Triangle', description: 'A simple sample named "Hello Triangle".' }
+				{ label: 'Hello Triangle', description: 'An OpenGL "Hello Triangle" application.' }
 			];
 
 		    // Show Samples list
@@ -366,7 +366,7 @@ var FileController = (function () {
 			        vscode.window.showInputBox({
 						ignoreFocusOut: true,
 			            prompt: 'Please configure Canvas width: default value is 100px',
-			            value: ''
+			            value: '100'
 			        })
 			        .then(function (width) {
 			            if (!width) {
@@ -382,7 +382,7 @@ var FileController = (function () {
 				        vscode.window.showInputBox({
 							ignoreFocusOut: true,
 				            prompt: 'Please configure Canvas Height: default value is 100px',
-				            value: ''
+				            value: '100'
 				        }).then(function (height) {
 				            if (!height) {
 								var notCfg = 'Cancelled the "Create Web App" without configuring canvas height!';
@@ -455,7 +455,7 @@ var FileController = (function () {
 			        vscode.window.showInputBox({
 						ignoreFocusOut: true,
 			            prompt: 'Please configure textarea columns: default value is 40',
-			            value: ''
+			            value: '40'
 			        })
 			        .then(function (columns) {
 			        	if (!columns) {
@@ -472,7 +472,7 @@ var FileController = (function () {
 				        vscode.window.showInputBox({
 							ignoreFocusOut: true,
 				            prompt: 'Please configure textarea rows: default value is 25',
-				            value: ''
+				            value: '25'
 				        }).then(function (rows) {
 				            if (!rows) {
 								var notCfg = 'Cancelled the "Create Web App" without configuring textarea rows!';

@@ -135,7 +135,7 @@ class AppLauncher {
 
     rmRemoteFile() {
         // Remove remote files: /home/owner/share/tmp/sdk_tools/tmp/*.wgt 
-        return this._execAsync(`${sdbExec} -s ${this.device} shell 0 rmfile`);
+        //return this._execAsync(`${sdbExec} -s ${this.device} shell 0 rmfile`);
     }
 
     openChromeDevTool() {
@@ -151,7 +151,7 @@ class AppLauncher {
             res.on('data', (chunk) => { weJson += chunk; });
             res.on('end', () => {
                 let devUrl = JSON.parse(weJson)[0].devtoolsFrontendUrl;
-                this._execAsync(`${this.chromeExec} http://${ipAddr}:${port}${devUrl}`);
+                this._execAsync(`${this.chromeExec} http://${ipAddr}:${port}${devUrl} --enable-blink-features=ShadowDOMV0,CustomElementsV0`);
             })
         })
     }
