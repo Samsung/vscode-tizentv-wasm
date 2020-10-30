@@ -100,35 +100,6 @@ The following section demonstrates the steps essential for developing a Tizen TV
 
 1. Create and activate a certificate profile for signing the Tizen TV Web application package.    
    Even though this step could be followed later, it is better to have certificate profile created and activated before proceding further.    
-   -    Run Certificate manager    
-   -    Create Profile (Tizen)    
-   -    Provide name for Certificate profile    
-           Example : Development    
-   -    Provide filename to store the Certificate Profile    
-           Example : TVDevelopmentCertificate    
-   -    Provide author name
-           Example : My Name
-   -    Enter and confirm password for the certificate    
-   
-1. Create an empty web project    
-   - Run Create Web Project    
-   - Select Empty    
-   - Choose the working directory. By default, it chooses current directory
-   - Provide name    
-           Example : HelloWASM    
-1. Add a WASM module choosing from existing C sample. 
-    - Run Add Wasm Module    
-    - Choose language
-        Example : C language for this demo    
-    - Provide name for Wasm module
-        Example : WasmModule
-    - Select the module mode
-        Example : Template
-    - Choose hello Triangle
-1. Build the WASM module.    
-1. Build the signed package.    
-    We already have created and activated certificate profile, this should be smooth.
-=======
    - Run Certificate manager    
      <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/certmgr1.png" alt="Certificate Manager"></p>  
    - Create Profile (Tizen)    
@@ -183,10 +154,7 @@ The following section demonstrates the steps essential for developing a Tizen TV
 1. Make sure TV and the development PC are in the same LAN.    
 1. Set [Developer Mode to On on TV](https://developer.samsung.com/smarttv/develop/getting-started/using-sdk/tv-device.html).
 1. Run Launch applicaion
-1. Choose Run On TV
-1. Set TV IP
-1. If everything went well, you should observe red triangle on the TV as below.
-  <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/runontv1.png" alt="1"></p>  
+  <p><img src="https://github.sec.samsung.net/VD-WebPlatform/WebAssembly/blob/master/vscode-extension-tizentvwasm/images/runontv1.png" alt="1"></p>  
 1. Choose Run On TV
   <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/runontv3.png" alt="1"></p>  
 1. Set TV IP
