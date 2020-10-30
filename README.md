@@ -154,7 +154,7 @@ The following section demonstrates the steps essential for developing a Tizen TV
 1. Make sure TV and the development PC are in the same LAN.    
 1. Set [Developer Mode to On on TV](https://developer.samsung.com/smarttv/develop/getting-started/using-sdk/tv-device.html).
 1. Run Launch applicaion
-  <p><img src="https://github.sec.samsung.net/VD-WebPlatform/WebAssembly/blob/master/vscode-extension-tizentvwasm/images/runontv1.png" alt="1"></p>  
+  <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/runontv1.png" alt="1"></p>  
 1. Choose Run On TV
   <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/runontv3.png" alt="1"></p>  
 1. Set TV IP
