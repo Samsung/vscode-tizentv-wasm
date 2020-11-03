@@ -3,7 +3,7 @@
 	"displayName": "Tizen TV WASM",
 	"description": "'Tizen TV WASM' is a lightweight dispatch of Tizen Studio, which provides extensible IDE to develop/debug tizen apps in vs code.",
 	"icon": "images/icon.png",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"publisher": "TizenTVWeb",
 	"repository": {
 		"type": "git",

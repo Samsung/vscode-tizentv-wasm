@@ -89,7 +89,7 @@ The extension supports most of the basic features required to develop a Tizen TV
       code
      ```
 5. Press **F1** to open the *Command Palette* and input **Tizen TV WASM** to find out all the supported commands.
-<p><img src="https://github.com/Samsung/vscode-tizentv-wasm/blob/master/images/featurelist.png" alt="feature list"></p>
+<p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/featurelist.png" alt="feature list"></p>
 
 6. Press **F5** to find out supported debuggers.   
 
@@ -141,13 +141,13 @@ The following section demonstrates the steps essential for developing a Tizen TV
      <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/addwasm3.png" alt="1"></p>  
     - Select the module mode
         Example : Template  
-     <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/addwasm4.png" alt="1"></p>  
+     <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/addwasm3.png" alt="1"></p>  
     - Choose hello Triangle
-    <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/addwasm5.png" alt="1"></p> 
+    <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/addwasm4.png" alt="1"></p> 
 1. Build the WASM module.    
     <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/buildwasm1.png" alt="1"></p>  
 1. Build the signed package.    
-    We already have created and activated certificate profile, this should be smooth.
+    As we have already created and activated certificate profile, this should be smooth.
     <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/buildsignedapp1.png" alt="1"></p>  
 
 ### Running on the TV
