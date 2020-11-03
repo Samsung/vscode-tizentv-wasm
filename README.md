@@ -101,49 +101,49 @@ The following section demonstrates the steps essential for developing a Tizen TV
 1. Create and activate a certificate profile for signing the Tizen TV Web application package.    
    Even though this step could be followed later, it is better to have certificate profile created and activated before proceding further.    
    - Run Certificate manager    
-     <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/certmgr1.png" alt="Certificate Manager"></p>  
-   - Create Profile (Tizen)    
-    <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/certmgr2.png" alt="Certificate Profile"></p> 
-   - Provide name for Certificate profile    
+      <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/certmgr1.png" alt="Certificate Manager"></p>  
+   -  Create Profile (Tizen)    
+      <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/certmgr2.png" alt="Certificate Profile"></p>   
+   -  Provide name for Certificate profile    
            Example : Development    
-    <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/certmgr4.png" alt="Certificate Profile Name"></p>  
+      <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/certmgr4.png" alt="Certificate Profile Name"></p>  
    - Provide filename to store the Certificate Profile    
            Example : TVDevelopmentCertificate    
-    <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/certmgr5.png" alt="Certificate Filename"></p>  
-   - Provide author name
+      <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/certmgr5.png" alt="Certificate Filename"></p>  
+   - Provide author name  
            Example : My Name
-    <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/certmgr6.png" alt="Certificate Author Name"></p> 
+      <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/certmgr6.png" alt="Certificate Author Name"></p> 
    - Enter and confirm password for the certificate    
-    <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/certmgr7.png" alt="Certificate Password"></p>  
+      <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/certmgr7.png" alt="Certificate Password"></p>  
    - Set as deafult
-    <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/certmgr8.png" alt="Certificate Default"></p>
+      <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/certmgr8.png" alt="Certificate Default"></p>
    - Run Certificate Manager again and set the active profile
-    <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/certmgr10.png" alt="Certificate Activate profile"></p> 
+      <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/certmgr10.png" alt="Certificate Activate profile"></p> 
    
 1. Create an empty web project    
    - Run Create Web Project    
-   <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/CreateWebProject1.png" alt="1"></p> 
+      <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/CreateWebProject1.png" alt="1"></p>  
    - Select Empty    
-   <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/CreateWebProject2.png" alt="1"></p> 
+      <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/CreateWebProject2.png" alt="1"></p> 
    - Choose the working directory. By default, it chooses current directory
-   <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/CreateWebProject4.png" alt="1"></p> 
-   -    Provide name   
-           Example : HelloWASM    
-   <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/CreateWebProject3.png" alt="1"></p> 
+      <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/CreateWebProject4.png" alt="1"></p> 
+   - Provide name   
+        Example : HelloWASM    
+      <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/CreateWebProject3.png" alt="1"></p> 
 1. Add a WASM module choosing from existing C sample. 
     - Run Add Wasm Module    
-    <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/addwasm1.png" alt="1"></p> 
-    - Choose language
+      <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/addwasm1.png" alt="1"></p> 
+    - Choose language   
         Example : C language for this demo    
-     <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/addwasm2.png" alt="1"></p>  
-    - Provide name for Wasm module
+      <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/addwasm2.png" alt="1"></p>  
+    - Provide name for Wasm module  
         Example : WasmModule  
-     <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/addwasm3.png" alt="1"></p>  
-    - Select the module mode
+      <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/addwasm3.png" alt="1"></p>  
+    - Select the module mode  
         Example : Template  
-     <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/addwasm3.png" alt="1"></p>  
+     <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/addwasm4.png" alt="1"></p>  
     - Choose hello Triangle
-    <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/addwasm4.png" alt="1"></p> 
+    <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/addwasm5.png" alt="1"></p> 
 1. Build the WASM module.    
     <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/buildwasm1.png" alt="1"></p>  
 1. Build the signed package.    
@@ -154,13 +154,13 @@ The following section demonstrates the steps essential for developing a Tizen TV
 1. Make sure TV and the development PC are in the same LAN.    
 1. Set [Developer Mode to On on TV](https://developer.samsung.com/smarttv/develop/getting-started/using-sdk/tv-device.html).
 1. Run Launch applicaion
-  <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/runontv1.png" alt="1"></p>  
+    <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/runontv1.png" alt="1"></p>  
 1. Choose Run On TV
-  <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/runontv3.png" alt="1"></p>  
+    <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/runontv3.png" alt="1"></p>  
 1. Set TV IP
-  <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/runontv4.png" alt="1"></p>  
+    <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/runontv4.png" alt="1"></p>  
 1. If everything went well, you should observe red triangle on the TV as below.
-  <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/tvscreen.png" alt="1"></p>  
+    <p><img src="https://raw.githubusercontent.com/Samsung/vscode-tizentv-wasm/master/images/tvscreen.png" alt="1"></p>  
 
 ## Command Configuration  
 Additional **TizenTV SDK configuration**s could be accessed by following below steps:  
