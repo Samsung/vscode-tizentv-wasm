@@ -8,6 +8,7 @@ const excludeFiles = require('./lib/excludeFiles');
 const addWasmModule = require('./lib/addWasmModule');
 const buildWasmModule = require('./lib/buildWasmModule');
 const logger = require('./lib/logger');
+const apiMapping = require('./lib/apiMapping');
 
 function activate(context) {
     //logger
@@ -55,6 +56,9 @@ function activate(context) {
     context.subscriptions.push(
         vscode.commands.registerCommand('tizentvwasm.buildWasmModule', async () => buildWasmModule())
     );
+
+    //mouse hover prompt
+    context.subscriptions.push(apiMapping.ApiMapping());
 }
 exports.activate = activate;
 

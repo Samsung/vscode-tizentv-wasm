@@ -3,7 +3,7 @@
 	"displayName": "Tizen TV WASM",
 	"description": "'Tizen TV WASM' is a lightweight dispatch of Tizen Studio, which provides extensible IDE to develop/debug tizen apps in vs code.",
 	"icon": "images/icon.png",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"publisher": "TizenTVWeb",
 	"repository": {
 		"type": "git",
@@ -28,7 +28,8 @@
 		"onCommand:tizentvwasm.witsStop",
 		"onCommand:tizentvwasm.excludeFiles",
 		"onCommand:tizentvwasm.addWasmModule",
-		"onCommand:tizentvwasm.buildWasmModule"
+		"onCommand:tizentvwasm.buildWasmModule",
+		"onLanguage:cpp"
 	],
 	"main": "./extension",
 	"contributes": {
@@ -142,14 +143,14 @@
 					"default" : [],
 					"description": "Set additional compilation options for C wasm module, eg: ['-O0', '-g4']"
 				},
-				"tizentv.emscriptenCPPCompiler" : {
-					"type":"array",
-					"default":[],
+				"tizentv.emscriptenCPPCompiler": {
+					"type": "array",
+					"default": ["-std=gnu++11"],
 					"description": "Set additional compilation options for C++ wasm module, eg: ['-O0', '-g4']"
 				},
-				"tizentv.emscriptenLinker" : {
-					"type" : "array",
-					"default" : [],
+				"tizentv.emscriptenLinker": {
+					"type": "array",
+					"default": ["-s EXPORT_NAME", "-s MODULARIZE=1"],
 					"description": "Set additional linker options for  wasm module, eg: ['-s WASM=1', '-s USE_SDL=2']"
 				}
 			}
