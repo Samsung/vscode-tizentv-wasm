@@ -9,7 +9,7 @@ const launchApplication = require('./lib/launchApplication');
 const excludeFiles = require('./lib/excludeFiles');
 const addWasmModule = require('./lib/addWasmModule');
 const buildWasmModule = require('./lib/buildWasmModule');
-//const sdburiInstaller = require('./lib/sdburi/sdbUriInstaller');
+const sdburiInstaller = require('./lib/sdburi/sdbUriInstaller');
 const {
   getWitsOutputCommand,
   getTizenTvOutputCommand,
@@ -85,7 +85,7 @@ function activate(context) {
 
     //mouse hover prompt
     context.subscriptions.push(apiMapping.ApiMapping());
-    //sdburiInstaller.installSdburi();
+    sdburiInstaller.installSdburi();
     checkTizenStudioDataDirectory();
 }
 exports.activate = activate;
