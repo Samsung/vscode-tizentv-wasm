@@ -1,4 +1,6 @@
 const vscode = require('vscode');
+const path = require('path');
+const { checkTizenStudioDataDirectory } = require('./lib/common');
 const createProject = require('./lib/createProject');
 const buildPackage = require('./lib/buildPackage');
 const certificateManager = require('./lib/certificateManager');
@@ -7,58 +9,84 @@ const launchApplication = require('./lib/launchApplication');
 const excludeFiles = require('./lib/excludeFiles');
 const addWasmModule = require('./lib/addWasmModule');
 const buildWasmModule = require('./lib/buildWasmModule');
-const logger = require('./lib/logger');
+//const sdburiInstaller = require('./lib/sdburi/sdbUriInstaller');
+const {
+  getWitsOutputCommand,
+  getTizenTvOutputCommand,
+} = require('./lib/outputCommander');
+const wasmLog = require('./lib/wasmLog');
 const apiMapping = require('./lib/apiMapping');
 
 function activate(context) {
     //logger
-    logger.createOutputPanel();
+    wasmLog.createOutputPanel();
 
     context.subscriptions.push(
-        vscode.commands.registerCommand('tizentvwasm.createProject', async () => createProject())
-    );
-
-    context.subscriptions.push(
-        vscode.commands.registerCommand('tizentvwasm.buildPackage', () => buildPackage())
+        vscode.commands.registerCommand('tizentvwasm.createProject', async () => createProject()),
     );
 
     context.subscriptions.push(
-        vscode.commands.registerCommand('tizentvwasm.certificateManager', async () => certificateManager())
+        vscode.commands.registerCommand('tizentvwasm.buildPackage', () => buildPackage()),
     );
 
     context.subscriptions.push(
-        vscode.commands.registerCommand('tizentvwasm.launchApplication', async () => launchApplication(false))
-    );
-    context.subscriptions.push(
-        vscode.commands.registerCommand('tizentvwasm.debugApplication', async () => launchApplication(true))
+        vscode.commands.registerCommand('tizentvwasm.certificateManager', async () => certificateManager()),
     );
 
     context.subscriptions.push(
-        vscode.commands.registerCommand('tizentvwasm.witsStart', async () => launchWits('start'))
+        vscode.commands.registerCommand('tizentvwasm.launchApplication', async (file) => {
+      if (file && file.fsPath && path.extname(file.fsPath) === '.wgt') {
+        launchApplication(false, file.fsPath);
+      } else {
+        launchApplication(false);
+      }
+    }),
+        );
+    context.subscriptions.push(
+        vscode.commands.registerCommand('tizentvwasm.debugApplication', async (file) => {
+      if (file && file.fsPath && path.extname(file.fsPath) === '.wgt') {
+        launchApplication(true, file.fsPath);
+      } else {
+        launchApplication(true);
+      }
+    }),
     );
 
     context.subscriptions.push(
-        vscode.commands.registerCommand('tizentvwasm.witsWatch', async () => launchWits('watch'))
+        vscode.commands.registerCommand('tizentvwasm.witsStart', async () => launchWits('start')),
     );
 
     context.subscriptions.push(
-        vscode.commands.registerCommand('tizentvwasm.witsStop', async () => launchWits('stop'))
+        vscode.commands.registerCommand('tizentvwasm.witsWatch', async () => launchWits('watch')),
     );
 
     context.subscriptions.push(
-        vscode.commands.registerCommand('tizentvwasm.excludeFiles',async (uri) => excludeFiles(uri))
+        vscode.commands.registerCommand('tizentvwasm.witsStop', async () => launchWits('stop')),
     );
 
     context.subscriptions.push(
-        vscode.commands.registerCommand('tizentvwasm.addWasmModule', async () => addWasmModule())
+        vscode.commands.registerCommand('tizentvwasm.excludeFiles',async (uri) => excludeFiles(uri)),
     );
 
     context.subscriptions.push(
-        vscode.commands.registerCommand('tizentvwasm.buildWasmModule', async () => buildWasmModule())
+        vscode.commands.registerCommand('tizentvwasm.addWasmModule', async () => addWasmModule()),
     );
+
+    context.subscriptions.push(
+        vscode.commands.registerCommand('tizentvwasm.buildWasmModule', async () => buildWasmModule()),
+    );
+    context.subscriptions.push(
+    vscode.commands.registerCommand('tizentvwasm.witsShowOutput', async () => getWitsOutputCommand().show()),
+  );
+
+  context.subscriptions.push(
+    vscode.commands.registerCommand('tizentvwasm.tizentvShowOutput', async () => getTizenTvOutputCommand().show()),
+  );
 
     //mouse hover prompt
     context.subscriptions.push(apiMapping.ApiMapping());
+    //sdburiInstaller.installSdburi();
+    checkTizenStudioDataDirectory();
 }
 exports.activate = activate;
 
