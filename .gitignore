@@ -1,0 +1,10 @@
+*.vsix
+.npmignore
+.jshintrc
+.travis.yml
+.zuul.yml
+backup
+.bin
+./node_modules
+node_modules
+resource/Author
