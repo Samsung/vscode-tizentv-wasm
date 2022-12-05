@@ -14,12 +14,9 @@ const {
   getWitsOutputCommand,
   getTizenTvOutputCommand,
 } = require('./lib/outputCommander');
-const wasmLog = require('./lib/wasmLog');
 const apiMapping = require('./lib/apiMapping');
 
 function activate(context) {
-    //logger
-    wasmLog.createOutputPanel();
 
     context.subscriptions.push(
         vscode.commands.registerCommand('tizentvwasm.createProject', async () => createProject()),
